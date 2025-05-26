@@ -1,0 +1,41 @@
+{% extends "dashboard.html" %}
+
+{% block dashboard_title %}Not Ekle{% endblock %}
+
+{% block dashboard_content %}
+<h2>Not Ekle</h2>
+
+<form action="{{ url_for('not_ekle') }}" method="post" class="mt-4" novalidate>
+  <div class="mb-3">
+    <label for="course_id" class="form-label">Ders Seçin</label>
+    <select class="form-select" id="course_id" name="course_id" required>
+      <option value="" disabled selected>Ders seçiniz</option>
+      {% for course in courses %}
+        <option value="{{ course.id }}">{{ course.name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="mb-3">
+    <label for="grade" class="form-label">Not</label>
+    <input type="number" class="form-control" id="grade" name="grade" placeholder="Notunuzu giriniz" required>
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Not Ekle</button>
+</form>
+
+{% if error %}
+  <div class="alert alert-danger mt-3" role="alert">
+    {{ error }}
+  </div>
+{% endif %}
+{% if success %}
+  <div class="alert alert-success mt-3" role="alert">
+    {{ success }}
+  </div>
+{% endif %}
+
+<div class="mt-4">
+  <a href="{{ url_for('notlar') }}" class="btn btn-secondary">Notlarıma Dön</a>
+</div>
+
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block dashboard_title %}Dashboard{% endblock %}
+
+{% block content %}
+<div class="d-flex" style="min-height: 100vh;">
+
+  <!-- Sidebar -->
+  <nav class="flex-shrink-0 p-3 bg-light border-end" style="width: 250px;">
+    <a href="{{ url_for('dashboard') }}" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-decoration-none">
+      <span class="fs-4 text-primary fw-bold">OBS Dashboard</span>
+    </a>
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item">
+        <a href="{{ url_for('dashboard') }}" class="nav-link {% if request.endpoint == 'dashboard' %}active{% endif %}">
+          <i class="bi bi-house-door-fill me-2"></i> Anasayfa
+        </a>
+      </li>
+      <li>
+        <a href="{{ url_for('derslerim') }}" class="nav-link {% if request.endpoint == 'derslerim' %}active{% endif %}">
+          <i class="bi bi-journal-bookmark-fill me-2"></i> Derslerim
+        </a>
+      </li>
+      <li>
+        <a href="{{ url_for('notlar') }}" class="nav-link {% if request.endpoint == 'notlar' %}active{% endif %}">
+          <i class="bi bi-file-earmark-text-fill me-2"></i> Notlarım
+        </a>
+      </li>
+      <li>
+        <a href="{{ url_for('logout') }}" class="nav-link text-danger">
+          <i class="bi bi-box-arrow-right me-2"></i> Çıkış Yap
+        </a>
+      </li>
+    </ul>
+    <hr>
+    <div class="text-center">
+      <small class="text-muted">Hoşgeldin, {{ current_user.firstname }}!</small>
+    </div>
+  </nav>
+
+  <!-- Main content -->
+  <main class="flex-grow-1 p-4">
+    {% block dashboard_content %}
+    <!-- Dashboard alt sayfa içerikleri buraya gelecek -->
+    {% endblock %}
+  </main>
+
+</div>
+{% endblock %}

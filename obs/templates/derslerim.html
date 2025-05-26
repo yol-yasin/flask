@@ -1,0 +1,33 @@
+{% extends "dashboard.html" %}
+
+{% block dashboard_title %}Derslerim{% endblock %}
+
+{% block dashboard_content %}
+<h2>Derslerim</h2>
+
+<div class="mb-3">
+    <a href="{{ url_for('ders_ekle') }}" class="btn btn-primary">Yeni Ders Ekle</a>
+</div>
+
+{% if courses %}
+  <ul class="list-group">
+    {% for course in courses %}
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <div>
+          <strong>Ders Adı:</strong> {{ course.name }} <br>
+          <strong>Öğretmen:</strong> {{ course.user.firstname }} {{ course.user.lastname }} (Öğretmen)
+        </div>
+        <div>
+          <a href="{{ url_for('ders_guncelle', course_id=course.id) }}" class="btn btn-warning btn-sm">Güncelle</a>
+          <form action="{{ url_for('ders_sil', course_id=course.id) }}" method="post" style="display:inline;">
+            <button type="submit" class="btn btn-danger btn-sm">Sil</button>
+          </form>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>Henüz kayıtlı dersiniz yok.</p>
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+
+{% block title %}Kayıt Ol{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center" style="min-height: 70vh;">
+  <div class="card shadow p-4" style="width: 100%; max-width: 450px;">
+    <h2 class="text-center mb-4 text-primary fw-bold">Kayıt Ol</h2>
+    {% if error %}
+      <div class="alert alert-danger">{{ error }}</div>
+    {% endif %}
+    <form action="{{ url_for('register') }}" method="post" novalidate>
+      <div class="mb-3">
+        <label for="firstname" class="form-label">Ad</label>
+        <input type="text" id="firstname" name="firstname" class="form-control" placeholder="Ad" required autocomplete="given-name" />
+      </div>
+      <div class="mb-3">
+        <label for="lastname" class="form-label">Soyad</label>
+        <input type="text" id="lastname" name="lastname" class="form-control" placeholder="Soyad" required autocomplete="family-name" />
+      </div>
+      <div class="mb-3">
+        <label for="username" class="form-label">Kullanıcı Adı</label>
+        <input type="email" id="username" name="username" class="form-control" placeholder="Kullanıcı Adı" required autocomplete="username" />
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Şifre</label>
+        <input type="password" id="password" name="password" class="form-control" placeholder="Şifre" required autocomplete="new-password" />
+      </div>
+      <div class="mb-4">
+        <label for="role" class="form-label">Rol Seçimi</label>
+        <select id="role" name="role" class="form-select" required>
+          <option value="student">Öğrenci</option>
+          <option value="teacher">Öğretmen</option>
+        </select>
+      </div>
+      <button type="submit" class="btn btn-primary w-100 fw-semibold">Kayıt Ol</button>
+    </form>
+    <p class="text-center mt-4 mb-0">
+      Zaten hesabınız var mı? <a href="{{ url_for('login') }}" class="text-primary fw-semibold text-decoration-none">Giriş Yap</a>
+    </p>
+  </div>
+</div>
+{% endblock %}

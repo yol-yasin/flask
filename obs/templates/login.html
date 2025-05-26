@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Giriş Yap - Öğrenci Bilgi Sistemi{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center vh-100 bg-light">
+  <div class="card shadow-sm p-4" style="max-width: 400px; width: 100%;">
+    <h2 class="text-center mb-4 text-primary fw-bold">Giriş Yap</h2>
+
+    <form action="{{ url_for('login') }}" method="post" novalidate>
+      <div class="mb-3">
+        <label for="username" class="form-label">Kullanıcı Adı</label>
+        <input type="text" class="form-control" id="username" name="username" placeholder="Kullanıcı Adı" required autofocus autocomplete="username">
+      </div>
+
+      <div class="mb-4">
+        <label for="password" class="form-label">Şifre</label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="Şifre" required autocomplete="current-password">
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100 fw-semibold">Giriş Yap</button>
+    </form>
+
+    {% if error %}
+      <div class="alert alert-danger mt-3" role="alert">
+        {{ error }}
+      </div>
+    {% endif %}
+
+    <p class="text-center mt-4 mb-0">
+      Hesabınız yok mu? <a href="{{ url_for('register') }}" class="text-primary fw-semibold text-decoration-none">Kayıt Ol</a>
+    </p>
+  </div>
+</div>
+{% endblock %}

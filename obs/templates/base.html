@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{% block title %}Öğrenci Bilgi Sistemi{% endblock %}</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+</head>
+<body>
+  <header>
+    {% block header %}Öğrenci Bilgi Sistemi{% endblock %}
+  </header>
+
+  <main role="main">
+    {% block content %}
+    {% endblock %}
+  </main>
+
+  <footer>
+    &copy; 2024 Öğrenci Bilgi Sistemi - Tüm Hakları Saklıdır
+  </footer>
+</body>
+</html>

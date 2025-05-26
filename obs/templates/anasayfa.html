@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}Ana Sayfa - Öğrenci Bilgi Sistemi{% endblock %}
+
+{% block content %}
+<div class="container" role="main"
+     style="max-width: 900px; margin: 0 auto; display: flex; justify-content: center; align-items: center; min-height: 480px; gap: 20px; flex-wrap: nowrap;">
+
+  <section class="hero" aria-labelledby="hero-title"
+           style="flex: 0 0 450px; background:#e8f0fe; padding:3rem 2.5rem; display:flex; flex-direction:column; justify-content:center; border-right:3px solid #1976d2;">
+    <h1 id="hero-title" style="font-weight:900; font-size:3.2rem; margin:0 0 1rem 0; line-height:1.1; color:#0d47a1;">
+      Okul Yönetimi İçin <br> Modern Çözüm
+    </h1>
+    <p style="font-size:1.3rem; opacity:0.85; margin-bottom:2.5rem; font-weight:500; line-height:1.4; color:#0d47a1;">
+      Öğrencilerinizin kayıt, not ve iletişim bilgilerini kolayca takip edin, yönetin ve analiz edin.
+    </p>
+    <div class="buttons" style="display:flex; gap:15px;">
+      <a href="/login" class="btn" role="button" aria-label="Giriş Yap"
+         style="padding:0.85rem 2rem; background:#1976d2; border:none; border-radius:40px; color:#fff; font-size:1.1rem; box-shadow:0 6px 15px #1976d2cc; cursor:pointer; transition:background-color 0.35s ease, box-shadow 0.35s ease; user-select:none; text-align:center; text-decoration:none; letter-spacing:0.7px; font-weight:600; display:inline-block;">
+        Giriş Yap
+      </a>
+      <a href="/register" class="btn" role="button" aria-label="Kayıt Ol"
+         style="padding:0.85rem 2rem; background:#1976d2; border:none; border-radius:40px; color:#fff; font-size:1.1rem; box-shadow:0 6px 15px #1976d2cc; cursor:pointer; transition:background-color 0.35s ease, box-shadow 0.35s ease; user-select:none; text-align:center; text-decoration:none; letter-spacing:0.7px; font-weight:600; display:inline-block;">
+        Kayıt Ol
+      </a>
+    </div>
+  </section>
+
+  <section class="features" aria-labelledby="features-title"
+           style="flex: 0 0 400px; padding:2rem 2rem; background:#f9fbff; display:flex; flex-direction:column; justify-content:center; gap:1.6rem;">
+    <h2 id="features-title"
+        style="color:#0d47a1; font-size:2rem; font-weight:700; margin-bottom:0.7rem; user-select:none; border-bottom:3px solid #1976d2; padding-bottom:0.3rem;">
+      Özelliklerimiz
+    </h2>
+    <div class="feature-item" tabindex="0" role="article" aria-label="Kullanıcı Girişi"
+         style="background:#ffffff; border-radius:15px; padding:1rem 1.5rem; box-shadow:0 5px 18px rgb(21 101 192 / 0.08); color:#0d47a1; font-weight:600; font-size:1.1rem; transition:transform 0.3s ease, box-shadow 0.3s ease; user-select:none; cursor:default;">
+      <strong>Kullanıcı Girişi:</strong> Öğrenci ve öğretmen için farklı yetkilerle güvenli erişim.
+    </div>
+    <div class="feature-item" tabindex="0" role="article" aria-label="Veritabanı Yönetimi"
+         style="background:#ffffff; border-radius:15px; padding:1rem 1.5rem; box-shadow:0 5px 18px rgb(21 101 192 / 0.08); color:#0d47a1; font-weight:600; font-size:1.1rem; transition:transform 0.3s ease, box-shadow 0.3s ease; user-select:none; cursor:default;">
+      <strong>Veritabanı Yönetimi:</strong> Öğrenci kayıtları, notlar ve dersler kolayca yönetilir.
+    </div>
+    <div class="feature-item" tabindex="0" role="article" aria-label="İstatistik ve Raporlama"
+         style="background:#ffffff; border-radius:15px; padding:1rem 1.5rem; box-shadow:0 5px 18px rgb(21 101 192 / 0.08); color:#0d47a1; font-weight:600; font-size:1.1rem; transition:transform 0.3s ease, box-shadow 0.3s ease; user-select:none; cursor:default;">
+      <strong>İstatistik ve Raporlama:</strong> Öğrenci başarıları için kapsamlı analiz ve raporlar.
+    </div>
+    <div class="feature-item" tabindex="0" role="article" aria-label="Filtreleme ve Arama"
+         style="background:#ffffff; border-radius:15px; padding:1rem 1.5rem; box-shadow:0 5px 18px rgb(21 101 192 / 0.08); color:#0d47a1; font-weight:600; font-size:1.1rem; transition:transform 0.3s ease, box-shadow 0.3s ease; user-select:none; cursor:default;">
+      <strong>Filtreleme & Arama:</strong> Ders ve öğrenci bazında hızlı veri erişimi sağlar.
+    </div>
+  </section>
+
+</div>
+
+{% endblock %}

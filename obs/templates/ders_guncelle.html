@@ -1,0 +1,32 @@
+{% extends "dashboard.html" %}
+
+{% block dashboard_title %}Ders Güncelle{% endblock %}
+
+{% block dashboard_content %}
+<h2>Ders Güncelle</h2>
+
+<form action="{{ url_for('ders_guncelle', course_id=course.id) }}" method="post" class="mt-4" novalidate>
+  <div class="mb-3">
+    <label for="course_name" class="form-label">Ders Adı</label>
+    <input type="text" class="form-control" id="course_name" name="course_name" value="{{ course.name }}" required>
+  </div>
+  
+  <button type="submit" class="btn btn-primary">Güncelle</button>
+</form>
+
+{% if error %}
+  <div class="alert alert-danger mt-3" role="alert">
+    {{ error }}
+  </div>
+{% endif %}
+{% if success %}
+  <div class="alert alert-success mt-3" role="alert">
+    {{ success }}
+  </div>
+{% endif %}
+
+<div class="mt-4">
+  <a href="{{ url_for('derslerim') }}" class="btn btn-secondary">Derslerime Dön</a>
+</div>
+
+{% endblock %}
